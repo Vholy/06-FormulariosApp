@@ -1,0 +1,91 @@
+<h2>Validaciones Reactivas</h2>
+<hr>
+
+<div class="row"  >
+  <div class="col">
+    <form autocomplete="off" [formGroup]="miFormulario" (ngSubmit)="submitForm()" >
+      <!-- Nombre -->
+      <div class="row mb-3">
+        <label class="col-sm-3 col-form-label" > Nombre </label>
+        <div class="col-sm-9" >
+          <input formControlName="nombre" type="text" class="form-control" placeholder="Nombre y Apellido" >
+          <span *ngIf="verificarCampo('nombre')" class="form-text text-danger"> Debe de ser wara wara wara wara</span>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="row mb-3">
+        <label class="col-sm-3 col-form-label" > Email </label>
+        <div class="col-sm-9" >
+          <input formControlName="correo" type="text" class="form-control" placeholder="Correo Electronico" >
+          <span class="form-text text-danger" *ngIf="verificarCampo('correo')"> {{mensajeError}} </span>
+
+        </div>
+      </div>
+
+      <!-- Username -->
+      <div class="row mb-3">
+        <label class="col-sm-3 col-form-label" > Nombre de Usuario </label>
+        <div class="col-sm-9" >
+          <input formControlName="usuario" type="text" class="form-control" placeholder="Nombre de Usuario" >
+          <span *ngIf="verificarCampo('usuario')" class="form-text text-danger"> Debe de ser wara wara wara wara</span>
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="row mb-3">
+        <label class="col-sm-3 col-form-label" > Password </label>
+        <div class="col-sm-9" >
+          <input formControlName="contraseña" type="password" class="form-control" placeholder="Contraseña" >
+          <span *ngIf="verificarCampo('contraseña')" class="form-text text-danger"> Debe contener almenos un wara wara wara wara</span>
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="row mb-3">
+        <label class="col-sm-3 col-form-label" > Repetir Password </label>
+        <div class="col-sm-9" >
+          <input formControlName="contraseña2"  type="password" class="form-control" placeholder="Repetir Contraseña" >
+          <span *ngIf="verificarCampo('contraseña2')" class="form-text text-danger"> No coinciden wara wara wara wara</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+
+          <button class="btn btn-primary float-end" type="submit" [disabled]="miFormulario.pending" >Registrarse</button>
+
+        </div>
+      </div>
+
+
+
+
+    </form>
+  </div>
+</div>
+
+<h5>Formulario</h5>
+<pre>
+  {{miFormulario.value | json}}
+</pre>
+<h5>Valid</h5>
+<pre>
+  {{miFormulario.valid | json}}
+</pre>
+<h5>nombre Valid</h5>
+<pre>
+  {{miFormulario.controls['nombre'].valid | json}}
+</pre>
+<h5>Pending</h5>
+<pre>
+  {{miFormulario.pending | json}}
+</pre>
+<h5>No Vholy</h5>
+<pre>
+  {{miFormulario.controls['usuario'].errors | json}}
+</pre>
+<!-- <h5>Persona</h5>
+<pre>
+  {{persona | json}}
+</pre> -->

@@ -1,0 +1,95 @@
+<h2>Reactive: Switches</h2>
+<hr>
+
+<form [formGroup]="miFormulario" (ngSubmit)="guardar()">
+
+  <!-- Radios -->
+  <div class="row mb-3">
+    <label class="col-sm-3 col-form-label">Género</label>
+    <div class="col-sm-9">
+
+      <div class="form-check">
+        <input formControlName="genero"
+               class="form-check-input"
+               type="radio"
+               value="M"
+               id="RadioGenero1"
+                >
+
+        <label class="form-check-label"   for="RadioGenero1"> Hombre </label>
+      </div>
+
+      <div class="form-check">
+        <input formControlName="genero"
+               class="form-check-input"
+               type="radio"
+               value="F"
+               id="RadioGenero2"
+                >
+
+        <label class="form-check-label"  for="RadioGenero2"> Mujer </label>
+      </div>
+
+    </div>
+
+  </div>
+  <hr>
+
+  <!-- Radios -->
+  <div class="row mb-3">
+    <label class="col-sm-3 col-form-label">Notificaciones</label>
+    <div class="col-sm-9">
+
+      <div class="form-check form-switch">
+        <input formControlName="notificacion" class="form-check-input" type="checkbox" role="switch" id="Switch1">
+        <label class="form-check-label" for="Switch1">Recibir Notificaciones</label>
+      </div>
+
+    </div>
+  </div>
+
+  <hr>
+  <!-- Check -->
+  <div class="row mb-3">
+    <label class="col-sm-3 col-form-label">Terminos y Condiciones</label>
+    <div class="col-sm-9">
+
+      <div class="form-check">
+        <input class="form-check-input"
+               formControlName="terminos"
+               type="checkbox"
+               id="flexCheckDefault"
+               name="teminos"
+               >
+        <label class="form-check-label" for="flexCheckDefault">
+          Acepto
+        </label>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12 ml-3">
+      <button class="btn btn-primary float-end" type="submit"  >
+        Guardar
+      </button>
+
+
+    </div>
+  </div>
+
+  <h5>Formulario</h5>
+  <pre>
+    {{miFormulario.value | json}}
+  </pre>
+  <h5>Valid</h5>
+  <pre>
+    {{miFormulario.valid | json}}
+  </pre>
+  <h5>Persona</h5>
+  <pre>
+    {{persona | json}}
+  </pre>
+
+

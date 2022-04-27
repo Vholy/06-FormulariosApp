@@ -1,0 +1,68 @@
+<h2>Reactive: Básicos</h2>
+<hr>
+
+<div class="row">
+
+  <div class="col">
+
+    <form  [formGroup]="miFormulario" (ngSubmit)="guardar()">
+      <!-- Campo de producto -->
+      <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Producto</label>
+        <div class="col-sm-9">
+          <input formControlName="nombre" type="text" class="form-control"placeholder="Nombre del producto" >
+          <span class="form-text text-danger"
+                *ngIf="validacionCampo('nombre')">
+            Debe superar las 3 letras
+          </span>
+        </div>
+      </div>
+
+      <!-- Campo de Precio -->
+      <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Precio</label>
+        <div class="col-sm-9">
+          <input formControlName="precio" type="number" class="form-control"placeholder="Precio del producto" >
+          <span class="form-text text-danger"
+                >
+            El precio debe ser mayor a 0
+          </span>
+        </div>
+      </div>
+
+      <!-- Campo de Stock -->
+      <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Stock</label>
+        <div class="col-sm-9">
+          <input formControlName="stock" type="number"class="form-control" placeholder="Stock del producto">
+          <span class="form-text text-danger"
+                *ngIf="validacionCampo('stock')">
+            Las existencias no pueden ser menor a 0
+          </span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <button type="submit" class="btn btn-primary float-end" >
+            Guardar
+          </button>
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+
+
+<span> Valid</span>
+<pre> {{miFormulario.valid}} </pre>
+
+<span> Pristine</span>
+<pre> {{miFormulario.pristine}} </pre>
+
+<span> Touched</span>
+<pre> {{miFormulario.touched}} </pre>
+
+<span> Value</span>
+<pre> {{miFormulario.value | json}} </pre>
